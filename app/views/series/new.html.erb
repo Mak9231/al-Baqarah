@@ -1,0 +1,43 @@
+<h1 class="text-2xl font-bold mb-6 text-center text-blue-700">Nouvelle Série</h1>
+
+<%= form_with(model: @serie, local: true, class: "max-w-xl mx-auto bg-white p-6 rounded-lg shadow") do |form| %>
+  <div class="mb-4">
+    <%= form.label :title, "Titre", class: "block font-medium text-gray-700" %>
+    <%= form.text_field :title, class: "w-full mt-1 p-2 border border-gray-300 rounded" %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :description, "Description", class: "block font-medium text-gray-700" %>
+    <%= form.text_area :description, rows: 3, class: "w-full mt-1 p-2 border border-gray-300 rounded" %>
+  </div>
+
+  <%= form.label :video %>
+  <%= form.file_field :video %>
+<br>
+<br>
+
+
+  <%= form.label :image %>
+  <%= form.file_field :image %>
+
+
+  <div class="text-center">
+    <%= form.submit "Créer la série", class: "bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700" %>
+  </div>
+
+<% end %>
+
+<br>
+
+
+<%= form_with model: @serie, local: true do |form| %>
+
+  <%= form.label :video %>
+  <%= form.file_field :video %>
+<br>
+<br>
+  <%= form.label :image %>
+  <%= form.file_field :image %>
+
+  <%= form.submit %>
+<% end %>

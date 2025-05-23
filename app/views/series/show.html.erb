@@ -1,0 +1,9 @@
+<div class="container mx-auto px-4 py-10">
+  <h1 class="text-3xl font-bold text-blue-800 mb-4"><%= @serie.title %></h1>
+  <p class="text-lg text-gray-700"><%= @serie.description %></p>
+  <a href="/series" class="text-blue-600 hover:underline mt-4 inline-block">← Retour aux séries</a>
+  <iframe class="w-full h-64 rounded-lg" src="https://www.youtube.com/embed/<%= extract_youtube_id(@serie.url) %>" frameborder="0" allowfullscreen></iframe>
+
+</div>
+
+

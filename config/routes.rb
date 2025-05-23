@@ -1,14 +1,37 @@
+# Rails.application.routes.draw do
+#   get "sessions/new"
+#   get "sessions/create"
+#   get "sessions/destroy"
+#   root "home#index"
+
+#   resources :videos, only: [:index, :show]
+#   resources :series, only: [:index, :show, :new, :create]
+
+
+# end
+
+
+
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # Page d'accueil
+  root "home#index"
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
+  # Connexion admin
+  get "login", to: "sessions#new"
+  post "login", to: "sessions#create"
+  delete "logout", to: "sessions#destroy"
 
-  # Render dynamic PWA files from app/views/pwa/*
-  get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
-  get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
+  # Interface admin protégée
+  namespace :admin do
+    resources :series, only: [:index, :edit, :update, :destroy]
+  end
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  # Accès public aux séries et vidéos
+  resources :videos, only: [:index, :show]
+  resources :series, only: [:index, :show, :new, :create]
+
+  # (optionnel) routes debug actuelles à retirer si non utilisées
+  # get "sessions/new"
+  # get "sessions/create"
+  # get "sessions/destroy"
 end
