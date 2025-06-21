@@ -1,0 +1,51 @@
+<h1>Ajouter une vidéo</h1>
+
+<%= form_with model: @video, local: true do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.label :file, "Fichier vidéo" %><br>
+    <%= form.file_field :file %>
+  </div>
+
+  <%= form.submit "Envoyer" %>
+<% end %>
+
+
+
+
+<%= form_with(model: video, local: true, html: { multipart: true }) do |form| %>
+  <div class="space-y-6 bg-white p-6 rounded-lg shadow-md">
+
+    <!-- Titre -->
+    <div>
+      <%= form.label :title, "Titre de la vidéo", class: "block text-sm font-medium text-gray-700" %>
+      <%= form.text_field :title, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" %>
+    </div>
+
+    <!-- Description -->
+    <div>
+      <%= form.label :description, "Description", class: "block text-sm font-medium text-gray-700" %>
+      <%= form.text_area :description, rows: 4, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50" %>
+    </div>
+
+    <!-- Upload Vidéo -->
+    <div>
+      <%= form.label :file, "Fichier Vidéo (MP4)", class: "block text-sm font-medium text-gray-700" %>
+      <%= form.file_field :file, class: "mt-1 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none" %>
+    </div>
+
+    <!-- Bouton -->
+    <div class="flex justify-end">
+      <%= form.submit video.persisted? ? "Mettre à jour" : "Créer", class: "px-6 py-2 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition" %>
+    </div>
+  </div>
+<% end %>

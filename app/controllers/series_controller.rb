@@ -16,6 +16,13 @@ class SeriesController < ApplicationController
     @serie = Series.new
   end
 
+  def destroy
+    @series = Series.find(params[:id])
+    @series.destroy
+    redirect_to series_index_path, notice: "Série supprimée avec succès."
+  end
+
+
   def create
     @serie = Series.new(series_params)
     if @serie.save

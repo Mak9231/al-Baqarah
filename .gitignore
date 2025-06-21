@@ -40,3 +40,319 @@
 /node_modules
 .env
 ADMIN_PASSWORD=motdepasseultrasecret123456
+
+
+
+
+
+
+
+
+
+<!-- Projet Al-Baqarah - Structure initiale inspirée de bayyinahtv.com -->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nos Séries - Al-Baqarah</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+ <body class="pt-16 bg-yellow-200 text-gray-900 font-sans min-h-screen "style= "background-image: url('/images/coran6.jpg'); background-size: cover; background-position: center;">
+
+
+
+  <!-- Header/NavBar -->
+  <%# <header class="fixed top-0 left-0 w-full z-50 bg-black shadow"> %>
+  <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-shadow duration-300 shadow">
+
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center ">
+      <%# <h1 class="text-1xl font-semi bold hover:text-green-600 text-grey-600">BaqarahTv</h1> %>
+        <div class="flex items-center space-x-0">
+          <img src="/images/logo1.jpg" alt="Logo1.jpg" class="h-12 w-12 object-contain">
+          <h1 id="logo" class="text-2xl font-bold hover:text-blue-100 text-green-900 transition-all duration-300">TV</h1>
+        </div>
+
+  <!-- logo cliclable
+
+        <a href="/" class="flex items-center space-x-2">
+          <img src="/images/logo1.jpg" alt="Logo1.jpg" class="h-12 w-12 object-contain">
+          <h1 id="logo" class="text-xl font-bold text-green-600 transition-all duration-300">Baqarahtv</h1>
+        </a> -->
+
+
+      <nav class="space-x-6" >
+        <a href="/" class="text-green-700 hover:text-blue-300">Accueil</a>
+        <a href="/videos" class="text-green-700 hover:text-blue-300">Vidéos</a>
+        <a href="/series" class="text-green-700 hover:text-blue-300">Séries</a>
+        <a href="/admin/series" class="text-green-700 hover:text-blue-300">Admin</a>
+        <a href="login" class="text-green-700 hover:text-blue-300">Connexion</a>
+      </nav>
+    </div>
+  </header>
+
+
+ <!-- Hero Section -->
+  <%# <section class="bg-blue-900 text-white text-center py-20">
+    <div class="container mx-auto px-4">
+      <h2 class="text-5xl font-extrabold mb-4">Approfondissez votre foi</h2>
+      <p class="text-xl mb-8">Explorez nos vidéos et séries inspirées par le Coran et la Sunna.</p>
+      <a href="/videos" class="inline-block bg-white text-blue-900 font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-gray-200 transition">Commencer à regarder</a>
+    </div>
+  </section> %>
+  <section class="relative pt-28  pb-20 text-white overflow-hidden" style="background-image: url('/images/coran.jpg'); background-size: cover; background-position: center;">
+
+  <div class="relative z-10 text-center px-4 bg-black bg-opacity-10 py-10">
+    <h2 class="text-5xl text-green-700 font-extrabold mb-4">La sagesse du Coran, rendue accessible</h2>
+    <p class="text-xl text-green-700 mb-8">Créez un lien personnel avec le Coran grâce à un apprentissage structuré.</p>
+    <a href="/videos" class="inline-block bg-green-700 text-blue-900 font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-gray-200 transition">
+      Commencer à regarder
+    </a>
+  </div>
+</section>
+
+
+ <!--<section class="py-12 bg-gray-50">
+  <div class="px-4">
+    <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">Découvrez notre univers</h2>
+
+    <div class="overflow-x-auto">
+      <div class="flex snap-x snap-mandatory space-x-4 pb-4 w-max">
+        <% ["imageislam1.jpg", "imageislam6.jpg", "imageislam9.jpg",
+            "imageislam4.jpg", "imageislam2.jpg", "imageislam3.png", "imageislam8.jpg"].each do |img| %>
+          <div class="snap-start shrink-0 w-80 h-52 rounded-lg overflow-hidden shadow-lg">
+            <img src="/images/<%= img %>" alt="<%= img %>" class="w-full h-full object-cover" />
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+
+  <!-- Section Vidéo personnelle -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 text-center">
+      <h3 class="text-3xl font-bold text-gray-800 mb-6"></h3>
+      <video controls autoplay muted playsinline  class="w-full h-auto mx-auto rounded-xl shadow-lg" >
+      <%# class="w-full max-w-4xl mx-auto rounded-xl shadow-lg" %>
+      <source src="/videos/ma-serie1.mp4" type="video/mp4">
+      Votre navigateur ne supporte pas la lecture vidéo.
+      </video>
+    </div>
+  </section>
+
+<!--
+<%= link_to "📖 Comprendre le Coran", lessons_path, class: "..." %>
+<%= link_to "📖 Apprendre le Coran", lessons_path, class: "bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-6 py-3 rounded-xl shadow-md transition" %>
+ -->
+
+<!-- Arrondis du text-->
+<section class="py-16 px-4 sm:px-8 lg:px-16 bg-green-100">
+  <!-- Bandeau supérieur avec arrondis -->
+  <div class="bg-green-500 text-green border-red-900 text-center py-4 px-6 rounded-l-full rounded-r-full max-w-xl mx-auto shadow-md">
+    <h1 class="text-xl sm:text-2xl font-semibold">
+      Study the entire Quran with us
+    </h1>
+  </div>
+
+  <!-- Texte principal -->
+  <div class="max-w-4xl mx-auto text-center mt-10">
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6">
+      Des Cours Conçus Pour Vous Rencontrer Là Où Vous En Etes
+    </h2>
+    <p class="text-lg sm:text-xl text-gray-700 leading-relaxed">
+      Que vous soyez un auditeur passif ou un preneur de notes assidu, notre sélection de cours pose les bases d’un
+      parcours personnalisé avec le Coran, pour que chaque apprenant se sente à l’aise, sans être dépassé ni intimidé.
+    </p>
+  </div>
+
+
+
+
+<section class="py-16  px-4 sm:px-8">
+  <div class="max-w-!xl mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <!-- Card 1 -->
+      <%= link_to '/surahs', class: "block rounded-xl overflow-hidden shadow-lg bg-gradient-to-b from-red-900 to-transparent-900 text-black hover:scale-105 transform transition duration-300" do %>
+        <img src="/images/coran1.jpg" alt="Quran Image" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <p class="text-sm opacity-80">Study the Quran</p>
+          <h3 class="text-2xl font-bold mt-2">Surah-by-Surah</h3>
+        </div>
+      <% end %>
+
+      <!-- Card 2 -->
+      <%= link_to '/subjects', class: "block rounded-xl overflow-hidden shadow-lg bg-gradient-to-b from-yellow-800 to-transparent-600 text-black hover:scale-105 transform transition duration-300" do %>
+        <img src="/images/coran2.jpg" alt="Subject Image" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <p class="text-sm opacity-80">Study the Quran</p>
+          <h3 class="text-2xl font-bold mt-2">Subject-by-Subject</h3>
+        </div>
+      <% end %>
+
+      <!-- Card 3 -->
+      <%= link_to '/arabic', class: "block rounded-xl overflow-hidden shadow-lg bg-gradient-to-b from-red-900 to-yellow-100 text-black hover:scale-105 transform transition duration-300" do %>
+        <img src="/images/coran3.jpg" alt="Quranic Arabic" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <p class="text-sm opacity-80">Study Quranic Arabic</p>
+          <h3 class="text-2xl font-bold mt-2">Step-by-Step</h3>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+</section>
+
+<br>
+<br>
+
+  <!-- Featured Content Section -->
+  <section class="py-16 ">
+    <div class="container mx-auto px-4">
+      <h3 class="text-3xl font-bold text-center text-gray-800 mb-8">Contenu en vedette</h3>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <h4 class="text-xl font-semibold mb-2">Série phare</h4>
+          <p class="text-gray-700 mb-4">Une série qui explore les fondements de l'islam avec des explications accessibles à tous.</p>
+          <a href="/series" class="text-blue-600 hover:underline">Voir les séries</a>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <h4 class="text-xl font-semibold mb-2">Cours récents</h4>
+          <p class="text-gray-700 mb-4">Découvrez nos dernières vidéos avec des enseignements pertinents pour la vie quotidienne.</p>
+          <a href="/videos" class="text-blue-600 hover:underline">Voir les vidéos</a>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <h4 class="text-xl font-semibold mb-2">Participez</h4>
+          <p class="text-gray-700 mb-4">Rejoignez notre communauté en ligne pour discuter, apprendre et partager autour de la foi.</p>
+          <a href="#" class="text-blue-600 hover:underline">S'inscrire</a>
+        </div>
+      </div>
+    </div>
+  </section>
+<br>
+<br>
+  <!-- Témoignages / Audios récents Section -->
+  <section class="py-20 ">
+    <div class="container mx-auto px-4">
+      <h3 class="text-3xl font-bold text-center text-gray-800 mb-10">Témoignages et extraits récents</h3>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="p-6 bg-gray-100 rounded-lg shadow">
+          <p class="italic text-gray-800">"Grâce à ces vidéos, j’ai pu mieux comprendre des notions importantes de ma religion. Merci à toute l’équipe !"</p>
+          <p class="mt-4 text-right font-semibold text-blue-700">– Samira</p>
+        </div>
+        <div class="p-6 bg-gray-100 rounded-lg shadow">
+          <p class="italic text-gray-800">"Les séries sont très bien faites, accessibles et profondes à la fois. Une vraie source d’inspiration."</p>
+          <p class="mt-4 text-right font-semibold text-blue-700">– Youssef</p>
+        </div>
+        <div class="p-6 bg-gray-100 rounded-lg shadow">
+          <p class="text-gray-800 font-semibold mb-2">Écouter un extrait</p>
+          <audio controls class="w-full">
+            <source src="/audios/extrait1.mp3" type="audio/mpeg">
+            Votre navigateur ne supporte pas l'élément audio.
+          </audio>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nouvelle section : Articles / Événements / Dons -->
+  <section class="py-20 ">
+    <div class="container mx-auto px-4">
+      <h3 class="text-3xl font-bold text-center text-gray-800 mb-10">Autres ressources</h3>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <h4 class="text-xl font-semibold mb-2">Articles</h4>
+          <p class="text-gray-700 mb-4">Lisez des articles de réflexion et d’apprentissage sur les thèmes islamiques contemporains.</p>
+          <a href="#" class="text-blue-600 hover:underline">Lire les articles</a>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <h4 class="text-xl font-semibold mb-2">Événements à venir</h4>
+          <p class="text-gray-700 mb-4">Participez à nos webinaires, conférences et rencontres communautaires.</p>
+          <a href="#" class="text-blue-600 hover:underline">Voir les événements</a>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <h4 class="text-xl font-semibold mb-2">Soutenez notre mission</h4>
+          <p class="text-gray-700 mb-4">Contribuez au développement de nos projets éducatifs et spirituels.</p>
+          <a href="#" class="text-blue-600 hover:underline">Faire un don</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- <%= link_to "📖 Apprendre le Coran", lessons_path, class: "bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-6 py-3 rounded-xl shadow-md transition" %>  -->
+
+
+  <!-- Page Séries -->
+   <!-- <section class="py-20 text-center">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-extrabold text-blue-800 mb-4">Nos Séries</h2>
+      <p class="text-lg text-gray-700 mb-6">Découvrez nos séries éducatives qui explorent les thèmes spirituels et les enseignements du Coran.</p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 text-left">
+        <% @series.each do |serie| %>
+          <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 p-6">
+            <h5 class="text-xl font-semibold text-gray-900 mb-2"><%= serie.title %></h5>
+            <p class="text-gray-700 mb-4"><%= serie.description %></p>
+            <% if serie.url.present? %>
+              <div class="aspect-w-16 aspect-h-9 mb-4">
+                <iframe class="w-full h-64 rounded-lg" src="https://www.youtube.com/embed/<%= extract_youtube_id(serie.url) %>" frameborder="0" allowfullscreen></iframe>
+              </div>
+            <% end %>
+            <a href="<%= series_path(serie) %>" class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors duration-200">Voir la série</a>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </section> -->
+
+<section class=" py-12">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="bg-white shadow-xl rounded-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
+      <!-- Image à gauche -->
+      <div class="h-64 md:h-auto ">
+        <img src="/images/islam4.jpg" alt="Coran" class=" rounded-2xl w-full h-96 object-fill">
+      </div>
+
+      <!-- Texte + bouton à droite -->
+      <div class="p-6 flex flex-col justify-center">
+        <h2 class="text-3xl font-bold text-gray-800 mb-4">📖 Comprendre le Coran</h2>
+        <p class="text-gray-600 text-lg mb-6">
+          Explorez les bases du Coran, ses enseignements, ses histoires, et apprenez à lire et méditer ses versets.
+        </p>
+        <%= link_to "Commencer maintenant", decouvrir_path, class: "inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-6 py-3 rounded-xl shadow transition" %>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Footer -->
+ <!-- <footer class="bg-gray-800 text-white py-6 mt-10">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2025 Baqarah TV. Tous droits réservés.</p>
+    </div>
+  </footer> -->
+
+ <script>
+  window.addEventListener('scroll', function() {
+    const navbar = document.getElementById('navbar');
+    const logo = document.getElementById('logo');
+
+    if (window.scrollY > 10) {
+      navbar.classList.add('shadow-lg', 'bg-gray-100');
+      logo.classList.remove('text-2xl');
+      logo.classList.add('text-xl');
+    } else {
+      navbar.classList.remove('shadow-lg', 'bg-gray-100');
+      logo.classList.add('text-2xl');
+      logo.classList.remove('text-xl');
+    }
+  });
+</script>
+</body>
+</html>

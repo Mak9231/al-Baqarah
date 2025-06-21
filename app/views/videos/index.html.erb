@@ -1,31 +1,34 @@
+<!--<section class="min-h-screen bg-gray-100 py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h1 class="text-4xl font-extrabold text-center text-gray-800 mb-12">🎥 Nos Vidéos</h1>
 
-
-
-
-<h1 class="text-3xl font-bold mb-6">Nos vidéos</h1>
-
-<div class="mb-4">
-  <input
-    type="text"
-    id="video-search"
-    placeholder="Rechercher une vidéo..."
-    class="w-full p-2 border border-gray-300 rounded"
-  />
-</div>
-
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-  <% @videos.each do |video| %>
-    <div class="video-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-      <a href="<%= video_path(video) %>">
-        <img src="<%= video.thumbnail_url %>" alt="<%= video.title %>" class="w-full h-48 object-cover" />
-      </a>
-      <div class="p-4">
-        <h2 class="text-xl font-semibold mb-2"><%= video.title %></h2>
-        <p class="text-gray-600 text-sm"><%= truncate(video.description, length: 100) %></p>
-      </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      <% @videos.each do |video| %>
+        <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+          <div class="relative group">
+            <% if video.file_name.present? %>
+              <video controls class="w-full h-56 object-cover group-hover:opacity-90 transition-opacity duration-300">
+                <source src="/videos/<%= video.file_name %>" type="video/mp4">
+                Ton navigateur ne prend pas en charge les vidéos.
+              </video>
+            <% elsif video.thumbnail_url.present? %>
+              <img src="<%= video.thumbnail_url %>" alt="<%= video.title %>" class="w-full h-56 object-cover" />
+            <% end %>
+          </div>
+          <div class="p-5">
+            <h2 class="text-xl font-semibold text-gray-800 mb-2"><%= video.title %></h2>
+            <p class="text-gray-600 text-sm mb-4"><%= truncate(video.description, length: 100) %></p>
+            <% if video.url.present? %>
+              <a href="<%= video.url %>" target="_blank" class="inline-block text-blue-600 hover:text-blue-800 font-medium">
+                Voir sur YouTube →
+              </a>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-</div>
+  </div>
+</section>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
@@ -44,4 +47,95 @@
       });
     });
   });
-</script>
+</script> -->
+
+
+                <!--OU BIEN -->
+
+<%# <section class="min-h-screen bg-gray-100 py-16"> %>
+<section class=" pt-32 min-h-screen bg-gradient-to-br from-green-200 via-yellow-300 to-red-900 py-16">
+<%# <section class="pt-32 min-h-screen bg-gradient-to-br from-emerald-50 to-yellow-100 py-16"> %>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h1 class="text-4xl font-extrabold text-center text-gray-800 mb-12 animate-fade-in">
+      🎥 Nos Vidéos Inspirantes
+    </h1>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      <% @videos.each do |video| %>
+        <% if video.file_name.present? %>
+          <div
+            class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden cursor-pointer transform hover:scale-[1.02] hover:-translate-y-1"
+            onclick="openLightbox('<%= "/videos/#{video.file_name}" %>')" >
+
+            <div class="relative group cursor-pointer" onclick="openLightbox('<%= "/videos/#{video.file_name}" %>')">
+  <video class="w-full h-56 object-cover rounded-xl shadow-md group-hover:brightness-75 transition duration-300" muted>
+    <source src="/videos/<%= video.file_name %>" type="video/mp4">
+  </video>
+  <div class="absolute inset-0 flex items-center justify-center">
+    <div class="bg-black/70 text-white rounded-full p-5 text-5xl shadow-lg transform group-hover:scale-110 transition duration-300">
+      ▶️
+    </div>
+  </div>
+  <div class="mt-2 px-2">
+
+    <h2 class="text-xl font-semibold text-gray-800"><%= video.title %></h2>
+    <p class="text-gray-600 text-sm"><%= truncate(video.description, length: 80) %></p>
+  </div>
+</div>
+
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+
+
+  <!-- Lightbox overlay -->
+  <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
+    <div class="relative w-full max-w-4xl p-4">
+      <button onclick="closeLightbox()" class="absolute top-2 right-2 text-white text-3xl font-bold">&times;</button>
+      <video id="lightboxVideo" controls autoplay class="w-full rounded-xl shadow-lg"></video>
+    </div>
+  </div>
+
+  <script>
+    function openLightbox(src) {
+      const lightbox = document.getElementById("lightbox");
+      const video = document.getElementById("lightboxVideo");
+      video.src = src;
+      lightbox.classList.remove("hidden");
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById("lightbox");
+      const video = document.getElementById("lightboxVideo");
+      video.pause();
+      video.src = "";
+      lightbox.classList.add("hidden");
+    }
+  </script>
+</section>
+
+
+
+
+
+<%# <section class="py-12 bg-gray-50"> %>
+<%# <section class="min-h-screen bg-gradient-to-br from-green-300 via-yellow-200 to-amber-300 py-16"> %>
+
+  <div class="px-4">
+    <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">Découvrez notre univers</h2>
+
+    <div class="overflow-x-auto">
+      <div class="flex snap-x snap-mandatory space-x-4 pb-4 w-max">
+        <% ["imageislam1.jpg", "imageislam6.jpg", "imageislam9.jpg",
+            "imageislam4.jpg", "imageislam2.jpg", "imageislam3.png", "imageislam8.jpg"].each do |img| %>
+          <div class="snap-start shrink-0 w-80 h-52 rounded-lg overflow-hidden shadow-lg">
+            <img src="/images/<%= img %>" alt="<%= img %>" class="w-full h-full object-cover" />
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

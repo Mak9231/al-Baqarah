@@ -1,30 +1,217 @@
-<div class="text-right mb-6">
-  <a href="<%= new_series_path %>" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">+ Nouvelle Série</a>
-</div>
+
+ <!--
+
+<section class=" pt-32 min-h-screen bg-gradient-to-br from-green-200 via-yellow-300 to-red-900 py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h1 class="text-4xl font-extrabold text-center text-gray-800 mb-12">📺 Nos Séries</h1>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      <% @series.each do |serie| %>
+        <div class="cursor-pointer">
+          <% if serie.file_name.present? %>
+            <div onclick="openLightbox('/videos/<%= serie.file_name %>')">
+              <video class="w-full h-56 object-cover rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300" muted>
+                <source src="/videos/<%= serie.file_name %>" type="video/mp4">
+              </video>
+            </div>
+          <% else %>
+            <img src="<%= serie.thumbnail_url.presence || 'https://source.unsplash.com/600x400/?quran,islam' %>"
+                 class="w-full h-56 object-cover rounded-xl shadow-md hover:shadow-xl transition duration-300" />
+          <% end %>
+          <div class="mt-2 px-2">
+            <h2 class="text-xl font-semibold text-gray-800"><%= serie.title %></h2>
+            <p class="text-gray-600 text-sm"><%= truncate(serie.description, length: 80) %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  Lightbox overlay
+  <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
+    <div class="relative w-full max-w-4xl p-4">
+      <button onclick="closeLightbox()" class="absolute top-2 right-2 text-white text-3xl font-bold">&times;</button>
+      <video id="lightboxVideo" controls autoplay class="w-full rounded-xl shadow-lg"></video>
+    </div>
+  </div>
+
+  <script>
+    function openLightbox(src) {
+      const lightbox = document.getElementById("lightbox");
+      const video = document.getElementById("lightboxVideo");
+      video.src = src;
+      lightbox.classList.remove("hidden");
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById("lightbox");
+      const video = document.getElementById("lightboxVideo");
+      video.pause();
+      video.src = "";
+      lightbox.classList.add("hidden");
+    }
+  </script>
 
 
 
- <!-- Page Séries -->
-  <section class="py-20 text-center">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-extrabold text-blue-800 mb-4">Nos Séries</h2>
-      <p class="text-lg text-gray-700 mb-6">Découvrez nos séries éducatives qui explorent
-      les thèmes spirituels et les enseignements du Coran.</p>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 text-left">
-        <% @series.each do |serie| %>
-          <div class="bg-white rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 p-6 relative">
-            <% if serie.created_at > 1.week.ago %>
-              <span class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">Nouveau</span>
-            <% end %>
-            <h5 class="text-xl font-semibold text-gray-900 mb-2"><%= serie.title %></h5>
-            <p class="text-gray-700 mb-4"><%= serie.description %></p>
-            <% if serie.respond_to?(:episodes_count) %>
-              <p class="text-sm text-gray-500 mb-2"><%= pluralize(serie.episodes_count, 'épisode') %></p>
-            <% end %>
-            <a href="<%= series_path(serie) %>" class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors duration-200">Voir la série</a>
+
+
+
+
+<div class="px-4">
+    <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">Découvrez notre univers</h2>
+
+    <div class="overflow-x-auto">
+      <div class="flex snap-x snap-mandatory space-x-4 pb-4 w-max">
+        <% ["imageislam1.jpg", "imageislam6.jpg", "imageislam9.jpg",
+            "imageislam4.jpg", "imageislam2.jpg", "imageislam3.png", "imageislam8.jpg"].each do |img| %>
+          <div class="snap-start shrink-0 w-80 h-52 rounded-lg overflow-hidden shadow-lg">
+            <img src="/images/<%= img %>" alt="<%= img %>" class="w-full h-full object-cover" />
           </div>
         <% end %>
       </div>
     </div>
-  </section>
+  </div>
+</section>  -->
+
+
+
+
+
+
+<!--
+
+ <div class="text-right mt-10 mr-10">
+  <a href="<%= new_series_path %>" class="inline-block bg-gradient-to-r from-yellow-500 to-emerald-600 text-white font-semibold px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:from-yellow-400 hover:to-emerald-500 transition-all">
+    + Nouvelle Série
+  </a>
+</div>
+
+<section class="pt-36 min-h-screen bg-gradient-to-br from-emerald-50 via-yellow-100 to-emerald-100 pb-20">
+  <div class="max-w-7xl mx-auto px-6">
+    <h1 class="text-5xl font-extrabold text-center text-emerald-900 drop-shadow-sm mb-16 tracking-tight">📺 Nos Séries Inspirantes</h1>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+      <% @series.each do |serie| %>
+        <div class="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition duration-300 overflow-hidden transform hover:-translate-y-1 cursor-pointer">
+          <% if serie.file_name.present? %>
+            <div onclick="openLightbox('/videos/<%= serie.file_name %>')">
+              <video class="w-full h-60 object-cover" muted>
+                <source src="/videos/<%= serie.file_name %>" type="video/mp4">
+              </video>
+            </div>
+          <% else %>
+            <img src="<%= serie.thumbnail_url.presence || 'https://source.unsplash.com/600x400/?quran,islam' %>"
+                 class="w-full h-60 object-cover" />
+          <% end %>
+          <div class="p-6">
+            <h2 class="text-2xl font-bold text-emerald-800 mb-2"><%= serie.title %></h2>
+            <p class="text-gray-600 text-base"><%= truncate(serie.description, length: 100) %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  -->
+
+  <!--
+
+  Lightbox overlay
+  <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 hidden">
+    <div class="relative w-full max-w-5xl p-4">
+      <button onclick="closeLightbox()" class="absolute top-3 right-4 text-white text-4xl font-bold hover:scale-125 transition">&times;</button>
+      <video id="lightboxVideo" controls autoplay class="w-full rounded-xl shadow-2xl"></video>
+    </div>
+  </div>
+
+  <script>
+    function openLightbox(src) {
+      const lightbox = document.getElementById("lightbox");
+      const video = document.getElementById("lightboxVideo");
+      video.src = src;
+      lightbox.classList.remove("hidden");
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById("lightbox");
+      const video = document.getElementById("lightboxVideo");
+      video.pause();
+      video.src = "";
+      lightbox.classList.add("hidden");
+    }
+  </script>
+</section>
+
+-->
+
+
+
+<section class=" pt-32 min-h-screen bg-gradient-to-br from-green-200 via-yellow-300 to-red-900 py-16">
+<div class="text-right mt-10 mr-10">
+
+  <a href="<%= new_series_path %>" class="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-500 to-emerald-600 text-white font-semibold px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:from-yellow-400 hover:to-emerald-500 transition-all">
+    <i data-lucide="plus-circle" class="w-5 h-5"></i> Nouvelle Série
+  </a>
+</div>
+
+<%# <section class="pt-36 min-h-screen bg-gradient-to-br from-emerald-50 via-yellow-100 to-emerald-100 pb-20"> %>
+  <div class="max-w-7xl mx-auto px-6">
+    <h1 class="text-5xl font-extrabold text-center text-emerald-900 drop-shadow-sm mb-16 tracking-tight" data-aos="fade-down">
+      📺 Nos Séries Inspirantes
+    </h1>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+      <% @series.each_with_index do |serie, index| %>
+        <div class="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition duration-300 overflow-hidden transform hover:-translate-y-1 cursor-pointer"
+             data-aos="fade-up" data-aos-delay="<%= index * 100 %>">
+          <% if serie.file_name.present? %>
+            <div onclick="openLightbox('/videos/<%= serie.file_name %>')">
+              <video class="w-full h-60 object-cover" muted>
+                <source src="/videos/<%= serie.file_name %>" type="video/mp4">
+              </video>
+            </div>
+
+
+          <% else %>
+            <img src="<%= serie.thumbnail_url.presence || 'https://source.unsplash.com/600x400/?quran,islam' %>"
+                 class="w-full h-60 object-cover" />
+          <% end %>
+          <div class="p-6">
+            <h2 class="text-2xl font-bold text-emerald-800 mb-2 flex items-center gap-2">
+              <i data-lucide="tv" class="w-5 h-5 text-yellow-500"></i> <%= serie.title %>
+            </h2>
+            <p class="text-gray-600 text-base"><%= truncate(serie.description, length: 100) %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- Lightbox overlay -->
+  <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 hidden">
+    <div class="relative w-full max-w-5xl p-4">
+      <button onclick="closeLightbox()" class="absolute top-3 right-4 text-white text-4xl font-bold hover:scale-125 transition">&times;</button>
+      <video id="lightboxVideo" controls autoplay class="w-full rounded-xl shadow-2xl"></video>
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+    function openLightbox(src) {
+      const lightbox = document.getElementById("lightbox");
+      const video = document.getElementById("lightboxVideo");
+      video.src = src;
+      lightbox.classList.remove("hidden");
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById("lightbox");
+      const video = document.getElementById("lightboxVideo");
+      video.pause();
+      video.src = "";
+      lightbox.classList.add("hidden");
+    }
+  </script>
+</section>

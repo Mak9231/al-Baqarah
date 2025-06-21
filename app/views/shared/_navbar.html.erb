@@ -1,0 +1,47 @@
+
+
+
+
+<%# app/views/shared/_navbar.html.erb %>
+<header id="navbar" class="fixed top-0 left-0 w-full z-50 bg-gray-900 transition-shadow duration-900 shadow">
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <a href="/" class="flex items-center space-x-0 no-underline ">
+      <img src="/images/logo1.jpg" alt="Logo1.jpg" class="h-12 w-12 object-contain">
+      <%# <h1 id="logo" class="text-2xl font-bold hover:text-blue-100 text-green-600 transition-all duration-300">TV</h1> %>
+      <h1 id="logo" class=" text-2xl font-bold hover:text-blue-100 text-green-900 grid grid-cols-2 gap-4 transition-all duration-300">TV</h1>
+
+
+    </a>
+    <nav class="space-x-6">
+      <a href="/" class="text-green-700 hover:text-blue-300">Accueil</a>
+      <a href="/videos" class=" text-green-700 hover:text-blue-300">Vidéos</a>
+      <a href="/series" class="text-green-700 hover:text-blue-300">Séries</a>
+      <a href="/admin/series" class="text-green-700 hover:text-blue-300">Admin</a>
+      <a href="/login" class="text-green-700 hover:text-blue-300">Connexion</a>
+    </nav>
+  </div>
+</header>
+
+<%# Ensuite, dans toutes tes vues layout: %>
+
+<%# Le reste de ton fichier (HTML complet avec les sections) reste inchangé ci-dessous. %>
+
+
+
+
+
+
+<!-- app/views/shared/_navbar.html.erb
+<header class="bg-white shadow fixed w-full top-0 z-50">
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-blue-100">Al-Baqarah</h1>
+    <nav class="space-x-6">
+      <%= link_to "Accueil", root_path, class: "text-gray-700 hover:text-blue-300" %>
+      <%= link_to "Vidéos", videos_path, class: "text-gray-700 hover:text-blue-300" %>
+      <%= link_to "Séries", series_index_path, class: "text-gray-700 hover:text-blue-300" %>
+      <%= link_to "Admin", admin_series_index_path, class: "text-gray-700 hover:text-blue-300" %>
+      <%= link_to "Connexion", login_path, class: "text-gray-700 hover:text-blue-300" %>
+    </nav>
+  </div>
+</header> -->
+  <!--<div class="h-24"></div> -->  <!-- espace pour compenser la navbar fixe -->

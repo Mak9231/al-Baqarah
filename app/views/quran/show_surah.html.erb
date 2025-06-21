@@ -1,0 +1,76 @@
+<br>
+<br>
+<br>
+
+<br>
+<div class="container">
+
+
+<div class="mb-10 text-center">
+  <h2 class="text-2xl font-semibold mb-4 text-green-700">🎧 Écouter la récitation</h2>
+  <audio controls class="mx-auto w-full md:w-2/3">
+    <source src="https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/<%= @surah["number"] %>.mp3" type="audio/mpeg">
+    Votre navigateur ne supporte pas l'audio HTML5.
+  </audio>
+</div>
+
+<% @surah["verses"].each_with_index do |verse, index| %>
+  <div class="mb-8 border-b pb-4">
+    <p class="text-right text-4xl md:text-5xl font-arabic leading-loose tracking-wide text-green-900">
+      <%= verse["arabic"] %>
+    </p>
+    <p class="mt-2 text-gray-700 italic text-base md:text-lg"><%= verse["french"] %></p>
+    <p class="text-sm text-green-500 text-right">Verset <%= index + 1 %></p>
+  </div>
+<% end %>
+
+
+
+
+<!--Suivant/précedent -->
+<div class="flex justify-between mt-12 text-center">
+  <% if @surah_number > 1 %>
+    <%= link_to "← Sourate précédente", quran_path(@surah_number - 1), class: "px-4 py-2 bg-green-200 rounded hover:bg-green-300" %>
+  <% else %>
+    <span class="text-gray-400 px-4 py-2">← Début</span>
+  <% end %>
+
+  <% if @surah_number < @total_surahs %>
+    <%= link_to "Sourate suivante →", quran_path(@surah_number + 1), class: "px-4 py-2 bg-green-200 rounded hover:bg-green-300" %>
+  <% else %>
+    <span class="text-gray-400 px-4 py-2">Fin →</span>
+  <% end %>
+</div>
+
+
+</div>
+
+
+
+
+
+
+<!--
+<h1 class="text-3xl font-bold mb-6 text-center">
+  <%= @surah["arabic_name"] %> – <%= @surah["name"] %> (Sourate <%= @surah["number"] %>)
+</h1>
+
+<% @surah["verses"].each_with_index do |verse, index| %>
+  <% surah_id = @surah["number"].to_s.rjust(3, "0") %>
+  <% ayah_id = (index + 1).to_s.rjust(3, "0") %>
+  <% audio_url = "https://cdn.islamic.network/quran/audio/128/ar.alafasy/#{surah_id}#{ayah_id}.mp3" %>
+
+  <div class="mb-6 border-b pb-4">
+    <p class="text-right text-2xl font-arabic leading-loose tracking-wide text-green-800">
+      <%= verse["arabic"] %>
+    </p>
+    <p class="italic text-gray-700 mt-2"><%= verse["french"] %></p>
+    <p class="text-sm text-gray-400 text-right mb-2">Verset <%= index + 1 %></p>
+
+    <audio controls class="w-full md:w-96 mx-auto">
+      <source src="<%= audio_url %>" type="audio/mpeg">
+      Navigateur incompatible avec l'audio.
+    </audio>
+  </div>
+<% end %>
+-->

@@ -14,3 +14,15 @@
  *= require_self
  */
  @import "bootstrap";
+
+ .hero-background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/imageislam1.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2;
+  z-index: 0;
+}
+@import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');

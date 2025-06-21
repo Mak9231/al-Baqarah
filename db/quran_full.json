@@ -1,0 +1,56 @@
+[
+  {
+    "number": 1,
+    "name": "Al-Fatiha",
+    "arabic_name": "الفاتحة",
+    "verses": [
+      {
+        "arabic": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+        "french": "Au nom d’Allah, le Tout Miséricordieux, le Très Miséricordieux."
+      },
+      {
+        "arabic": "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
+        "french": "Louange à Allah, Seigneur de l’univers."
+      },
+      {
+        "arabic": "الرَّحْمَٰنِ الرَّحِيمِ",
+        "french": "Le Tout Miséricordieux, le Très Miséricordieux,"
+      },
+      {
+        "arabic": "مَالِكِ يَوْمِ الدِّينِ",
+        "french": "Maître du Jour de la rétribution."
+      },
+      {
+        "arabic": "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ",
+        "french": "C’est Toi que nous adorons, et c’est Toi dont nous implorons secours."
+      },
+      {
+        "arabic": "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",
+        "french": "Guide-nous dans le droit chemin,"
+      },
+      {
+        "arabic": "صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ",
+        "french": "le chemin de ceux que Tu as comblés de faveurs, non pas de ceux qui ont encouru Ta colère, ni des égarés."
+      }
+    ]
+  },
+  {
+    "number": 2,
+    "name": "Al-Baqarah",
+    "arabic_name": "البقرة",
+    "verses": [
+      {
+        "arabic": "الم",
+        "french": "Alif, Lam, Mim."
+      },
+      {
+        "arabic": "ذَٰلِكَ الْكِتَابُ لَا رَيْبَ ۛ فِيهِ ۛ هُدًى لِّلْمُتَّقِينَ",
+        "french": "C’est le Livre au sujet duquel il n’y a aucun doute, un guide pour les pieux."
+      },
+      {
+        "arabic": "الَّذِينَ يُؤْمِنُونَ بِالْغَيْبِ وَيُقِيمُونَ الصَّلَاةَ وَمِمَّا رَزَقْنَاهُمْ يُنفِقُونَ",
+        "french": "qui croient à l’invisible, accomplissent la prière et dépensent [dans l’obéissance à Allah] de ce que Nous leur avons attribué."
+      }
+    ]
+  }
+]

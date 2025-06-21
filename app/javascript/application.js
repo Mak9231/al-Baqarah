@@ -2,3 +2,14 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 import "bootstrap"
+
+
+module.exports = {
+  theme: {
+    extend: {
+      fontFamily: {
+        arabic: ['"Amiri"', 'serif'],
+      }
+    }
+  }
+}

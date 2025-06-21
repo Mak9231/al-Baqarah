@@ -1,0 +1,118 @@
+<!--
+<h1 class="text-4xl font-bold text-center my-10">📖 Les 114 sourates du Coran</h1>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 px-4 md:px-12">
+  <% @surahs.each do |sourah| %>
+    <a href="<%= quran_surah_path(sourah["number"]) %>" class="group block bg-white shadow-md rounded-2xl p-6 border border-gray-100 hover:shadow-xl transition duration-300">
+      <div class="flex justify-between items-center mb-4">
+        <span class="text-sm font-medium text-gray-500">Sourate <%= sourah["number"] %></span>
+        <span class="text-lg text-gray-700 group-hover:text-green-600 transition font-semibold">
+          <%= sourah["name"] %>
+        </span>
+      </div>
+      <div class="text-right text-2xl text-green-800 font-arabic tracking-wide group-hover:text-green-900 transition">
+        <%= sourah["arabic_name"] %>
+      </div>
+    </a>
+  <% end %>
+</div>
+
+-->
+
+
+
+
+
+
+
+
+
+<!--
+
+<h1 class="text-4xl font-bold text-center my-10">📖 Les 114 sourates du Coran</h1>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 px-4 md:px-12">
+  <% @surahs.each do |sourah| %>
+    <a href="<%= quran_surah_path(sourah["number"]) %>" class="group block bg-white shadow-lg rounded-2xl p-6 border border-gray-100 hover:shadow-2xl transition duration-300">
+
+       <%# Nom arabe à droite  %>
+      <div class="text-right text-3xl text-green-800 font-arabic tracking-wider group-hover:text-green-900 transition">
+        <%= sourah["arabic_name"] %>
+      </div>
+
+      <%#  Nom français en dessous  %>
+      <div class="mt-2 text-lg font-semibold text-gray-700 group-hover:text-green-700 transition">
+        <%= sourah["name"] %>
+      </div>
+
+       <%# Numéro  %>
+      <div class="mt-1 text-sm text-gray-500">
+        Sourate <%= sourah["number"] %>
+      </div>
+    </a>
+  <% end %>
+</div>
+
+
+-->
+
+
+
+
+
+
+
+<h1 class="text-4xl font-bold text-center my-10">📖 Les 114 sourates du Coran</h1>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 px-4 md:px-12">
+  <% @surahs.each do |sourah| %>
+    <a href="<%= quran_surah_path(sourah["number"]) %>" class="group block bg-white shadow-lg rounded-2xl p-6 border border-gray-100 hover:shadow-2xl transition duration-300">
+
+       <%# Nom arabe centré %>
+      <div class="text-center text-2xl text-green-800 font-arabic tracking-wider group-hover:text-green-900 transition">
+        <%= sourah["arabic_name"] %>
+      </div>
+
+       <%# Nom français %>
+      <div class="mt-1 text-center text-lg font-semibold text-gray-700 group-hover:text-green-700 transition">
+        <%= sourah["name"] %>
+      </div>
+
+       <%# Numéro complet  %>
+      <div class="mt-2 text-sm text-gray-500 text-center">
+        Sourate <%= sourah["number"] %> – <%= sourah["name"] %> – <%= sourah["arabic_name"] %>
+      </div>
+    </a>
+  <% end %>
+</div>
+
+
+
+
+
+
+<!--
+<h1 class="text-4xl font-bold text-center my-10">📖 Les 114 sourates du Coran</h1>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 px-4 md:px-12">
+  <% @surahs.each do |sourah| %>
+    <a href="<%= quran_surah_path(sourah["number"]) %>" class="group block bg-white shadow-lg rounded-2xl p-6 border hover:shadow-2xl transition">
+
+       <%# Nom arabe %>
+      <div class="text-right text-2xl text-green-800 font-arabic tracking-wider group-hover:text-green-900">
+        <%= sourah["arabic_name"] %>
+      </div>
+
+       <%# Nom français %>
+      <div class="mt-1 text-lg font-semibold text-gray-700 group-hover:text-green-700">
+        <%= sourah["name"] %>
+      </div>
+
+       <%# Numéro  %>
+      <div class="mt-1 text-sm text-gray-500">
+        Sourate <%= sourah["number"] %>
+      </div>
+    </a>
+  <% end %>
+</div>
+-->
