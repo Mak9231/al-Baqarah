@@ -1,0 +1,112 @@
+<h1>Subjects#index</h1>
+<p>Find me in app/views/subjects/index.html.erb</p>
+
+
+
+<!--
+<h1 class="text-3xl font-bold mb-6">Explorer par sujets</h1>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+  <% @subjects.each do |subject| %>
+    <div class="bg-white rounded-xl shadow p-4">
+      <h2 class="text-xl font-semibold text-green-800"><%= subject.title %></h2>
+      <p class="text-gray-600 mb-3"><%= truncate(subject.description, length: 100) %></p>
+      <%= link_to "Voir les versets", subject_path(subject), class: "text-blue-600 hover:underline" %>
+    </div>
+  <% end %>
+</div>>
+-->
+
+
+
+
+<!--
+
+<div class="container ">
+
+<section class="py-12 bg-gray-100 rounded-5xl">
+  <div class="container mx-auto px-4 rounded-8xl">
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">📚 Sujets</h2>
+
+    <div class="overflow-x-auto">
+      <div class="flex space-x-6 pb-4 w-max snap-x rounded-8xl snap-mandatory">
+        <% @subjects.each do |subject| %>
+          <div class="snap-start shrink-0 w-72 bg-white rounded-xl shadow-lg hover:shadow-xl transition transform hover:scale-105">
+            <img src="<%= subject.image_url %>" alt="<%= subject.title %>" class="w-full h-44 object-cover rounded-t-xl">
+            <div class="p-4">
+              <h3 class="text-xl font-semibold text-gray-800"><%= subject.title %></h3>
+              <p class="text-sm text-gray-600 mt-1"><%= subject.description %></p>
+              <a href="<%= subject_path(subject) %>" class="inline-block mt-4 text-green-700 font-bold hover:underline">
+                Explorer →
+              </a>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+-->
+
+
+
+<div class="container">
+
+
+<section class="py-12 bg-gray-100 rounded-5xl relative">
+  <div class="container mx-auto px-4 rounded-8xl">
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">📚 Sujets</h2>
+
+    <!-- Flèches -->
+    <button id="prevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow hover:bg-green-100 z-10">
+      ◀
+    </button>
+    <button id="nextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow hover:bg-green-100 z-10">
+      ▶
+    </button>
+
+    <!-- Carrousel -->
+    <div id="carousel" class="overflow-x-auto scroll-smooth">
+      <div class="flex space-x-6 pb-4 w-max snap-x snap-mandatory" id="carouselInner">
+        <% @subjects.each do |subject| %>
+          <div class="snap-start shrink-0 w-72 bg-white rounded-xl shadow-lg hover:shadow-xl transition transform hover:scale-105">
+            <img src="<%= subject.image_url %>" alt="<%= subject.title %>" class="w-full h-44 object-cover rounded-t-xl">
+            <div class="p-4">
+              <h3 class="text-xl font-semibold text-gray-800"><%= subject.title %></h3>
+              <p class="text-sm text-gray-600 mt-1"><%= subject.description %></p>
+              <a href="<%= subject_path(subject) %>" class="inline-block mt-4 text-green-700 font-bold hover:underline">
+                Explorer →
+              </a>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Script flèches + auto défilement -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const carousel = document.getElementById("carousel");
+    const nextBtn = document.getElementById("nextBtn");
+    const prevBtn = document.getElementById("prevBtn");
+
+    const scrollAmount = 300;
+
+    nextBtn.addEventListener("click", () => {
+      carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+
+    prevBtn.addEventListener("click", () => {
+      carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+
+    // Auto-scroll toutes les 5 secondes
+    setInterval(() => {
+      carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }, 5000);
+  });
+</script>
+</div>

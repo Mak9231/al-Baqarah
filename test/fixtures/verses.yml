@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  subject: one
+  surah_number: 1
+  verse_number: 1
+  text: MyText
+
+two:
+  subject: two
+  surah_number: 1
+  verse_number: 1
+  text: MyText

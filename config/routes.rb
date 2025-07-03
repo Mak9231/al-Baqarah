@@ -5,6 +5,8 @@
 
 
 Rails.application.routes.draw do
+  get "subjects/index"
+  get "subjects/show"
   #get "quran/surahs"
   #get "quran/subjects"
   #get "quran/arabic"
@@ -26,6 +28,8 @@ Rails.application.routes.draw do
   resources :videos, only: [:index, :show, :new, :create]
   resources :series, only: [:index, :show, :new, :create]
   resources :lessons
+  resources :subjects, only: [:index, :show]
+
 
   get "/decouvrir", to: "pages#decouvrir", as: :decouvrir
 #   get "/lessons", to: "lessons#index", as: :lessons
