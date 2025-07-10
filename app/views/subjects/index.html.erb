@@ -1,5 +1,3 @@
-<h1>Subjects#index</h1>
-<p>Find me in app/views/subjects/index.html.erb</p>
 
 
 
@@ -15,9 +13,6 @@
   <% end %>
 </div>>
 -->
-
-
-
 
 <!--
 
@@ -46,15 +41,13 @@
   </div>
 </section>
 </div>
-
 -->
 
+<section class="bg-green-200 pt-20 " >
 
+<div class="container ">
 
-<div class="container">
-
-
-<section class="py-12 bg-gray-100 rounded-5xl relative">
+<section class="py-12  rounded-5xl relative">
   <div class="container mx-auto px-4 rounded-8xl">
     <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">📚 Sujets</h2>
 
@@ -70,16 +63,18 @@
     <div id="carousel" class="overflow-x-auto scroll-smooth">
       <div class="flex space-x-6 pb-4 w-max snap-x snap-mandatory" id="carouselInner">
         <% @subjects.each do |subject| %>
-          <div class="snap-start shrink-0 w-72 bg-white rounded-xl shadow-lg hover:shadow-xl transition transform hover:scale-105">
-            <img src="<%= subject.image_url %>" alt="<%= subject.title %>" class="w-full h-44 object-cover rounded-t-xl">
-            <div class="p-4">
-              <h3 class="text-xl font-semibold text-gray-800"><%= subject.title %></h3>
-              <p class="text-sm text-gray-600 mt-1"><%= subject.description %></p>
-              <a href="<%= subject_path(subject) %>" class="inline-block mt-4 text-green-700 font-bold hover:underline">
-                Explorer →
-              </a>
+          <a href="<%= subject_path(subject) %>" class="snap-start shrink-0 w-72 bg-white rounded-xl shadow-lg hover:shadow-xl transition transform hover:scale-105 no-underline">
+            <div>
+              <img src="<%= subject.image_url %>" alt="<%= subject.title %>" class="w-full h-44 object-cover rounded-t-xl">
+              <div class="p-4">
+                <h3 class="text-xl font-semibold text-gray-800"><%= subject.title %></h3>
+                <p class="text-sm text-gray-600 mt-1"><%= subject.description %></p>
+                <span class="inline-block mt-4 text-green-700 font-bold hover:underline">
+                  Explorer →
+                </span>
+              </div>
             </div>
-          </div>
+          </a>
         <% end %>
       </div>
     </div>
@@ -106,7 +101,9 @@
     // Auto-scroll toutes les 5 secondes
     setInterval(() => {
       carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }, 5000);
+    }, 3000);
   });
 </script>
+
 </div>
+</section>
